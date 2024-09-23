@@ -1,0 +1,22 @@
+/* styles.css */
+.button-info {
+    -fx-background-color: #0d3ef0;
+    -fx-text-fill: white;
+    -fx-padding: 10px 20px;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.button-info:hover {
+    -fx-background-color: #31d2f2;
+}
+
+.button-info:pressed {
+    -fx-background-color: #0aa2be;
+}
+
+.button-info:focused {
+    -fx-background-color: #0d3ef0;
+    -fx-border-color: #3c4142;
+}
