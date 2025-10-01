@@ -12,6 +12,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.10.0</junit.version>
+        <javafx.version>21.0.4</javafx.version>
     </properties>
 
     <dependencyManagement>
@@ -35,12 +36,12 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>17.0.6</version>
+            <version>${javafx.version}</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-web</artifactId>
-            <version>21.0.4</version>
+            <version>${javafx.version}</version>
         </dependency>
 
         <dependency>
@@ -118,8 +119,23 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.glassm.projecttimer/com.glassm.projecttimer.ProjectTimerApplication
-                            </mainClass>
+                            <mainClass>com.glassm.projecttimer/com.glassm.projecttimer.ProjectTimerApplication</mainClass>
+                            <launcher>app</launcher>
+                            <jlinkZipName>app</jlinkZipName>
+                            <jlinkImageName>app</jlinkImageName>
+                            <noManPages>true</noManPages>
+                            <stripDebug>true</stripDebug>
+                            <noHeaderFiles>true</noHeaderFiles>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>build-runtime-image</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jlink</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>com.glassm.projecttimer/com.glassm.projecttimer.ProjectTimerApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
